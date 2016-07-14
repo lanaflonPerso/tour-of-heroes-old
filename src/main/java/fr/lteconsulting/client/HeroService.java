@@ -10,6 +10,6 @@ public class HeroService
 {
 	public JsArray<Hero> getHeroes()
 	{
-		return null;
+		return MockHeroes.HEROES;
 	}
 }
