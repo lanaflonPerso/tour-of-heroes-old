@@ -2,6 +2,7 @@ package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -14,11 +15,11 @@ import jsinterop.annotations.JsType;
 				"<span class='badge'>{{hero.id}}</span> {{hero.name}}" +
 				"</li>" +
 				"</ul>" +
-				"<h2>{{hero.name}} details!</h2>" +
-				"<div><label>id: </label>{{hero.id}}</div>" +
+				"<h2>{{selectedHero.name}} details!</h2>" +
+				"<div><label>id: </label>{{selectedHero.id}}</div>" +
 				"<div>" +
 				"<label>name: </label>" +
-				"<input [(ngModel)]='hero.name' placeholder='name'>" +
+				"<input [(ngModel)]='selectedHero.name' placeholder='name'>" +
 				"</div>",
 		styles = ".selected {" +
 				"background-color: #CFD8DC !important;" +
@@ -74,8 +75,14 @@ public class AppComponent
 	private String title = "Tour of Heroes";
 
 	@JsProperty
-	private Hero hero = new Hero( 1, "Windstorm" );
+	private Hero selectedHero;
 
 	@JsProperty
 	private JsArray<Hero> heroes = Application.HEROES;
+	
+	@JsMethod
+	private void onSelect( Hero hero )
+	{
+		this.selectedHero = hero;
+	}
 }
