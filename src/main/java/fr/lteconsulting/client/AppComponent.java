@@ -63,7 +63,8 @@ import jsinterop.annotations.JsType;
 				"margin-right: .8em;" +
 				"border-radius: 4px 0 0 4px;" +
 				"}",
-		directives = HeroDetailComponent.class )
+		directives = HeroDetailComponent.class,
+		providers = HeroService.class )
 @JsType
 public class AppComponent
 {
@@ -75,6 +76,13 @@ public class AppComponent
 
 	@JsProperty
 	private JsArray<Hero> heroes;
+	
+	private HeroService heroService;
+	
+	public AppComponent( HeroService heroService )
+	{
+		this.heroService = heroService;
+	}
 
 	@JsMethod
 	private void onSelect( Hero hero )
