@@ -74,7 +74,7 @@ public class AppComponent
 	private Hero selectedHero;
 
 	@JsProperty
-	private JsArray<Hero> heroes = Application.HEROES;
+	private JsArray<Hero> heroes;
 
 	@JsMethod
 	private void onSelect( Hero hero )
