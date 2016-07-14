@@ -1,6 +1,7 @@
 package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
+import fr.lteconsulting.angular2gwt.client.JsArray;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -21,4 +22,7 @@ public class AppComponent
 
 	@JsProperty
 	private Hero hero = new Hero( 1, "Windstorm" );
+	
+	@JsProperty
+	private JsArray<Hero> heroes = Application.HEROES;
 }
