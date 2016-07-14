@@ -2,6 +2,7 @@ package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
+import fr.lteconsulting.angular2gwt.client.JsTools;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
@@ -99,6 +100,8 @@ public class AppComponent implements OnInit
 
 	private void getHeroes()
 	{
-		this.heroService.getHeroes().then( ( heroes ) -> this.heroes = heroes, null );
+		this.heroService.getHeroes().then( ( heroes ) -> {
+			JsTools.setTimeout( () -> this.heroes = heroes, 2000 );
+		}, null );
 	}
 }
