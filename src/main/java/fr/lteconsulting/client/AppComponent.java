@@ -62,7 +62,8 @@ import jsinterop.annotations.JsType;
 				"height: 1.8em;" +
 				"margin-right: .8em;" +
 				"border-radius: 4px 0 0 4px;" +
-				"}" )
+				"}",
+		directives = HeroDetailComponent.class )
 @JsType
 public class AppComponent
 {
@@ -74,7 +75,7 @@ public class AppComponent
 
 	@JsProperty
 	private JsArray<Hero> heroes = Application.HEROES;
-	
+
 	@JsMethod
 	private void onSelect( Hero hero )
 	{
