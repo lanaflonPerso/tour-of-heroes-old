@@ -76,9 +76,9 @@ public class AppComponent
 
 	@JsProperty
 	private JsArray<Hero> heroes;
-	
+
 	private HeroService heroService;
-	
+
 	public AppComponent( HeroService heroService )
 	{
 		this.heroService = heroService;
@@ -88,5 +88,10 @@ public class AppComponent
 	private void onSelect( Hero hero )
 	{
 		this.selectedHero = hero;
+	}
+
+	private void getHeroes()
+	{
+		this.heroes = this.heroService.getHeroes();
 	}
 }
