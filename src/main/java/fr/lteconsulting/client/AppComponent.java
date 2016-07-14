@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 
 @Component(
 		selector = "my-app",
-		template = "<h1>{{title}}</h1><h2>{{hero}} details!</h2>" )
+		template = "<h1>{{title}}</h1><h2>{{hero.name}} details!</h2>" )
 @JsType
 public class AppComponent
 {
@@ -14,5 +14,5 @@ public class AppComponent
 	private String title = "Tour of Heroes";
 
 	@JsProperty
-	private String hero = "Windstorm";
+	private Hero hero = new Hero( 1, "Windstorm" );
 }
