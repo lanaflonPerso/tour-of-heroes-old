@@ -2,6 +2,7 @@ package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
+import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -66,7 +67,7 @@ import jsinterop.annotations.JsType;
 		directives = HeroDetailComponent.class,
 		providers = HeroService.class )
 @JsType
-public class AppComponent
+public class AppComponent implements OnInit
 {
 	@JsProperty
 	private String title = "Tour of Heroes";
@@ -82,6 +83,12 @@ public class AppComponent
 	public AppComponent( HeroService heroService )
 	{
 		this.heroService = heroService;
+	}
+	
+	@Override
+	public void ngOnInit()
+	{
+		getHeroes();
 	}
 
 	@JsMethod
