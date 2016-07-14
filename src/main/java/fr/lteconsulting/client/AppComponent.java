@@ -84,7 +84,7 @@ public class AppComponent implements OnInit
 	{
 		this.heroService = heroService;
 	}
-	
+
 	@Override
 	public void ngOnInit()
 	{
@@ -99,6 +99,6 @@ public class AppComponent implements OnInit
 
 	private void getHeroes()
 	{
-		this.heroes = this.heroService.getHeroes();
+		this.heroService.getHeroes().then( ( heroes ) -> this.heroes = heroes, null );
 	}
 }
