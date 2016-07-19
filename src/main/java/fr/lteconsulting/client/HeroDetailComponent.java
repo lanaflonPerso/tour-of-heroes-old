@@ -12,7 +12,8 @@ import jsinterop.annotations.JsType;
 				"<div><label>id: </label>{{hero.id}}</div>" +
 				"<div>" +
 				"<label>name: </label>" +
-				"<input [(ngModel)]='hero.name' placeholder='name'>" +
+				//"<input [(ngModel)]='hero.name' placeholder='name'>" +
+				"<input [value]='hero.name' (input)='hero.name=$event.target.value' placeholder='name'>" +
 				"</div>" +
 				"</div>" )
 @JsType

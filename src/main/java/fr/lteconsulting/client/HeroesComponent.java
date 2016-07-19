@@ -1,8 +1,10 @@
 package fr.lteconsulting.client;
 
+import com.google.gwt.core.client.GWT;
+
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
-import fr.lteconsulting.angular2gwt.client.JsTools;
+import fr.lteconsulting.angular2gwt.client.interop.angular.NgZone;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
@@ -80,12 +82,18 @@ public class HeroesComponent implements OnInit
 
 	private HeroService heroService;
 
-	public HeroesComponent( HeroService heroService )
+	private NgZone zone;
+
+	public HeroesComponent( HeroService heroService, NgZone zone )
 	{
+		GWT.log( "new HeroComponent" );
+		this.zone = zone;
 		this.heroService = heroService;
+		getHeroes();
 	}
 
 	@Override
+	@JsMethod
 	public void ngOnInit()
 	{
 		getHeroes();
@@ -100,7 +108,9 @@ public class HeroesComponent implements OnInit
 	private void getHeroes()
 	{
 		this.heroService.getHeroes().then( ( heroes ) -> {
-			JsTools.setTimeout( () -> this.heroes = heroes, 2000 );
+			zone.run( ()-> {
+			} );
+			this.heroes = heroes;
 		}, null );
 	}
 }
