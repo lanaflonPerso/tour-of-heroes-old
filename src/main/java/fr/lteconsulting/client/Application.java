@@ -20,7 +20,8 @@ public class Application implements EntryPoint
 		Object router = Angular.provideRouter( JsArray.of(
 				RouterConfig.route( "heroes", HeroesComponent_AngularComponent.getComponentPrototype() ),
 				RouterConfig.route( "dashboard", DashboardComponent_AngularComponent.getComponentPrototype() ),
-				RouterConfig.route( "", "/dashboard", "full" ) ) );
+				RouterConfig.route( "", "/dashboard", "full" ),
+				RouterConfig.route( "detail/:id", HeroDetailComponent_AngularComponent.getComponentPrototype() ) ) );
 
 		Angular.bootstrap( AppComponent_AngularComponent.getComponentPrototype(), JsArray.of( router, provideForms() ) );
 	}
