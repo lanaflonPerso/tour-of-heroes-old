@@ -9,7 +9,6 @@ import jsinterop.annotations.JsType;
 		selector = "my-app",
 		template = "<h1>{{title}}</h1>" +
 				"<a [routerLink]=\\\"['/heroes']\\\">Heroes</a><br/>" +
-				"<a [routerLink]=\\\"['/']\\\">Welcome</a><br/>" +
 				"<router-outlet></router-outlet>",
 		directives = RouterDirectives.class,
 		providers = HeroService.class )
