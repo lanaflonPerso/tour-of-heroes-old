@@ -18,7 +18,9 @@ public class Application implements EntryPoint
 		// Angular.enableProdMode();
 
 		Object router = Angular.provideRouter( JsArray.of(
-				RouterConfig.route( "heroes", HeroesComponent_AngularComponent.getComponentPrototype() ) ) );
+				RouterConfig.route( "heroes", HeroesComponent_AngularComponent.getComponentPrototype() ),
+				RouterConfig.route( "dashboard", DashboardComponent_AngularComponent.getComponentPrototype() ),
+				RouterConfig.route( "", "/dashboard", "full" ) ) );
 
 		Angular.bootstrap( AppComponent_AngularComponent.getComponentPrototype(), JsArray.of( router, provideForms() ) );
 	}
