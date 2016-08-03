@@ -7,10 +7,10 @@ import jsinterop.annotations.JsType;
 public class Hero
 {
 	@JsProperty
-	private int id;
+	public int id;
 
 	@JsProperty
-	private String name;
+	public String name;
 
 	public Hero( int id, String name )
 	{
