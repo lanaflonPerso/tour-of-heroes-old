@@ -13,4 +13,11 @@ public class HeroService
 	{
 		return Promise.resolve( MockHeroes.HEROES );
 	}
+
+	public Promise<Hero> getHero( int id )
+	{
+		return new Promise<>( ( resolver, rejecter ) -> {
+			getHeroes().then( ( heroes ) -> resolver.resolve( heroes.find( ( hero ) -> hero.id == id ) ), ( error ) -> rejecter.reject( error ) );
+		} );
+	}
 }

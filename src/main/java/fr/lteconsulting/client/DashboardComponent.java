@@ -2,8 +2,8 @@ package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
-import fr.lteconsulting.angular2gwt.client.interop.angular.NgZone;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
+import fr.lteconsulting.angular2gwt.client.interop.angular.Router;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -15,13 +15,15 @@ import jsinterop.annotations.JsType;
 public class DashboardComponent implements OnInit
 {
 	private HeroService heroService;
+	private Router router;
 
 	@JsProperty
 	private JsArray<Hero> heroes;
 
-	public DashboardComponent( HeroService heroService, NgZone zone )
+	public DashboardComponent( HeroService heroService, Router router )
 	{
 		this.heroService = heroService;
+		this.router = router;
 	}
 
 	@Override
@@ -33,7 +35,9 @@ public class DashboardComponent implements OnInit
 	}
 
 	@JsMethod
-	private void gotoDetail()
+	private void gotoDetail( Hero hero )
 	{
+		String id = String.valueOf( hero.id );
+		router.navigate( JsArray.of( "/detail", id ) );
 	}
 }
