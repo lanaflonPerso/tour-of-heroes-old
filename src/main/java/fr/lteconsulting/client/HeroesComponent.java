@@ -26,7 +26,10 @@ public class HeroesComponent implements OnInit
 	@JsProperty
 	private JsArray<Hero> heroes;
 
+	@JsProperty
 	private Object error;
+	
+	@JsProperty
 	private boolean addingHero;
 
 	private HeroService heroService;
