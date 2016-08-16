@@ -1,7 +1,6 @@
 package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
-import fr.lteconsulting.angular2gwt.client.interop.angular.RouterDirectives;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -13,9 +12,7 @@ import jsinterop.annotations.JsType;
 				"<a [routerLink]=\\\"['/heroes']\\\" routerLinkActive='active'>Heroes</a>" +
 				"</nav>" +
 				"<router-outlet></router-outlet>",
-		styleUrls = "app.component.css",
-		directives = RouterDirectives.class,
-		providers = HeroService.class )
+		styleUrls = "app.component.css" )
 @JsType
 public class AppComponent
 {

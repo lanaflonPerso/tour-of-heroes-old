@@ -11,7 +11,8 @@ import jsinterop.annotations.JsType;
 @Component(
 		selector = "my-dashboard",
 		templateUrl = "dashboard.component.html",
-		styleUrls = "dashboard.component.css" )
+		styleUrls = "dashboard.component.css",
+		providers = HeroService.class)
 @JsType
 public class DashboardComponent implements OnInit
 {
