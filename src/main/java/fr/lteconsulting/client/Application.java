@@ -14,6 +14,6 @@ public class Application implements EntryPoint
 	{
 		// Angular.enableProdMode();
 
-		Angular.platformBrowserDynamic().bootstrapModule( ApplicationModule_AngularModule.getComponentPrototype() );
+		Angular.platformBrowserDynamic().bootstrapModule( AppModule_AngularModule.getComponentPrototype() );
 	}
 }
