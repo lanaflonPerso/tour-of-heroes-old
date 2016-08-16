@@ -4,6 +4,7 @@ import com.google.gwt.core.client.EntryPoint;
 
 import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.client.interop.angular.Angular;
+import fr.lteconsulting.angular2gwt.client.interop.angular.HttpProviders;
 import fr.lteconsulting.angular2gwt.client.interop.angular.RouterConfig;
 import jsinterop.annotations.JsMethod;
 
@@ -23,7 +24,7 @@ public class Application implements EntryPoint
 				RouterConfig.route( "", "/dashboard", "full" ),
 				RouterConfig.route( "detail/:id", HeroDetailComponent_AngularComponent.getComponentPrototype() ) ) );
 
-		Angular.bootstrap( AppComponent_AngularComponent.getComponentPrototype(), JsArray.of( router, provideForms() ) );
+		Angular.bootstrap( AppComponent_AngularComponent.getComponentPrototype(), JsArray.of( router, provideForms(), HttpProviders.get() ) );
 	}
 
 	@JsMethod( namespace = "ng.forms", name = "provideForms" )

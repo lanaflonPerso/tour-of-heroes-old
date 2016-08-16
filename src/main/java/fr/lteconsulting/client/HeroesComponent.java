@@ -2,6 +2,7 @@ package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
+import fr.lteconsulting.angular2gwt.client.interop.Event;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import fr.lteconsulting.angular2gwt.client.interop.angular.Router;
 import jsinterop.annotations.JsMethod;
@@ -11,7 +12,8 @@ import jsinterop.annotations.JsType;
 @Component(
 		selector = "my-heroes",
 		templateUrl = "heroes.component.html",
-		styleUrls = "heroes.component.css" )
+		styleUrls = "heroes.component.css",
+		directives = HeroDetailComponent.class )
 @JsType
 public class HeroesComponent implements OnInit
 {
@@ -23,6 +25,9 @@ public class HeroesComponent implements OnInit
 
 	@JsProperty
 	private JsArray<Hero> heroes;
+
+	private Object error;
+	private boolean addingHero;
 
 	private HeroService heroService;
 
@@ -45,7 +50,7 @@ public class HeroesComponent implements OnInit
 	@JsMethod
 	private void onSelect( Hero hero )
 	{
-		this.selectedHero = hero;
+		selectedHero = hero;
 	}
 
 	@JsMethod
@@ -54,9 +59,39 @@ public class HeroesComponent implements OnInit
 		router.navigate( JsArray.of( "/detail", String.valueOf( selectedHero.id ) ) );
 	}
 
+	@JsMethod
+	private void addHero()
+	{
+		addingHero = true;
+		selectedHero = null;
+	}
+
+	@JsMethod
+	private void close( Hero savedHero )
+	{
+		addingHero = false;
+
+		if( savedHero != null )
+			getHeroes();
+	}
+
+	@JsMethod
+	private void deleteHero( Hero hero, Event event )
+	{
+		event.stopPropagation();
+
+		heroService
+				.delete( hero )
+				.then( ( res ) -> {
+					heroes = heroes.filter( h -> h != hero );
+					if( selectedHero == hero )
+						selectedHero = null;
+				}, ( error ) -> this.error = error );
+	}
+
 	private void getHeroes()
 	{
-		this.heroService.getHeroes().then( ( heroes ) -> {
+		heroService.getHeroes().then( ( heroes ) -> {
 			this.heroes = heroes;
 		}, null );
 	}

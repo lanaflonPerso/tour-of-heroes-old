@@ -1,5 +1,7 @@
 package fr.lteconsulting.client;
 
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsIgnore;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -12,8 +14,17 @@ public class Hero
 	@JsProperty
 	public String name;
 
+	@JsConstructor
+	public Hero()
+	{
+		id = 0;
+	}
+
+	@JsIgnore
 	public Hero( int id, String name )
 	{
+		this();
+
 		this.id = id;
 		this.name = name;
 	}

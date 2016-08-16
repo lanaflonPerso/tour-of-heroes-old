@@ -1,10 +1,13 @@
-package fr.lteconsulting.client;
+package fr.lteconsulting.server;
 
-import fr.lteconsulting.angular2gwt.client.JsArray;
+import java.util.Arrays;
+import java.util.List;
+
+import fr.lteconsulting.client.Hero;
 
 public class MockHeroes
 {
-	public static JsArray<Hero> HEROES = JsArray.of(
+	public static List<Hero> HEROES = Arrays.asList(
 			new Hero( 11, "Mr. Nice" ),
 			new Hero( 12, "Narco" ),
 			new Hero( 13, "Bombasto" ),

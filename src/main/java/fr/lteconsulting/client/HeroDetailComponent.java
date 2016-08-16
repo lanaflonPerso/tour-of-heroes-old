@@ -2,8 +2,10 @@ package fr.lteconsulting.client;
 
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.Input;
+import fr.lteconsulting.angular2gwt.Output;
 import fr.lteconsulting.angular2gwt.client.JsTools;
 import fr.lteconsulting.angular2gwt.client.interop.angular.ActivatedRoute;
+import fr.lteconsulting.angular2gwt.client.interop.angular.EventEmitter;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnDestroy;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subscription;
@@ -22,6 +24,13 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	@JsProperty
 	private Hero hero;
 
+	@Output
+	private EventEmitter<Hero> close = new EventEmitter<>();
+
+	private Object error;
+	private Object sub;
+	private boolean navigated;
+
 	private HeroService heroService;
 	private ActivatedRoute route;
 
@@ -37,9 +46,20 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	public void ngOnInit()
 	{
 		routeParamsSubscription = route.params.subscribe( ( params ) -> {
-			int id = Integer.parseInt( params.get( "id" ) );
+			if( params.get( "id" ) != null )
+			{
+				int id = Integer.parseInt( params.get( "id" ) );
 
-			heroService.getHero( id ).then( ( hero ) -> this.hero = hero, null );
+				navigated = true;
+
+				heroService.getHero( id ).then( ( hero ) -> this.hero = hero, null );
+			}
+			else
+			{
+				navigated = false;
+
+				hero = new Hero();
+			}
 		} );
 	}
 
@@ -50,8 +70,22 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	}
 
 	@JsMethod
-	private void goBack()
+	private void goBack( Hero savedHero )
 	{
-		JsTools.historyGoBack();
+		close.emit( savedHero );
+
+		if( navigated )
+			JsTools.historyGoBack();
+	}
+
+	@JsMethod
+	private void save()
+	{
+		heroService
+				.save( hero )
+				.then( ( hero ) -> {
+					this.hero = hero; // saved hero, w/ id if new
+					goBack( hero );
+				}, ( error ) -> this.error = error ); // TODO: Display error message
 	}
 }
