@@ -3,13 +3,14 @@ package fr.lteconsulting.client;
 import fr.lteconsulting.angular2gwt.NgModule;
 import fr.lteconsulting.angular2gwt.client.interop.angular.BrowserModule;
 import fr.lteconsulting.angular2gwt.client.interop.angular.FormsModule;
+import fr.lteconsulting.angular2gwt.client.interop.angular.Http;
 import jsinterop.annotations.JsType;
 
 @NgModule(
-		imports = { BrowserModule.class, FormsModule.class, Routes.class },
-		declarations = { AppComponent.class, DashboardComponent.class, HeroesComponent.class, HeroDetailComponent.class },
-		providers = HeroService.class,
-		entryComponents = { DashboardComponent.class, HeroesComponent.class, HeroDetailComponent.class },
+		imports = { BrowserModule.class, FormsModule.class, Routes.class, HttpModule.class },
+		declarations = { AppComponent.class, DashboardComponent.class, HeroesComponent.class, HeroDetailComponent.class, HeroSearchComponent.class },
+		providers = { HeroService.class, HeroSearchService.class },
+		entryComponents = { DashboardComponent.class, HeroesComponent.class, HeroDetailComponent.class, HeroSearchComponent.class },
 		bootstrap = AppComponent.class )
 @JsType
 public class AppModule {

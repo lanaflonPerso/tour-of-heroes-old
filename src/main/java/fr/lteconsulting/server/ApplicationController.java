@@ -2,6 +2,7 @@ package fr.lteconsulting.server;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.lteconsulting.client.Hero;
@@ -30,6 +32,12 @@ public class ApplicationController
 	List<Hero> getHeroes()
 	{
 		return heroes;
+	}
+	
+	@RequestMapping( value = "/heroes",params={"name"}, method = RequestMethod.GET, produces = "application/json" )
+	List<Hero> getHeroes(@RequestParam String name)
+	{
+		return heroes.stream().filter(hero->hero.name.toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
 	}
 
 	@RequestMapping( value = "/heroes/{id}", method = RequestMethod.GET, produces = "application/json" )
