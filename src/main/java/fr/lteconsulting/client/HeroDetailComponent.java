@@ -10,6 +10,7 @@ import fr.lteconsulting.angular2gwt.client.interop.angular.OnDestroy;
 import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subscription;
 import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOptional;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -71,7 +72,7 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	}
 
 	@JsMethod
-	private void goBack( Hero savedHero )
+	private void goBack( @JsOptional Hero savedHero )
 	{
 		close.emit( savedHero );
 
