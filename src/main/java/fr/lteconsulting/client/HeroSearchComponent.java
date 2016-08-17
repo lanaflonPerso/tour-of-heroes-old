@@ -13,7 +13,7 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "hero-search", templateUrl = "hero-search.component.html", styleUrls = "hero-search.component.css", providers = HeroSearchService.class)
+@Component(selector = "hero-search", templateUrl = "hero-search.component.html", styleUrls = "hero-search.component.css")
 @JsType
 public class HeroSearchComponent implements OnInit {
 	@JsProperty
@@ -38,9 +38,8 @@ public class HeroSearchComponent implements OnInit {
 
 	@Override
 	public void ngOnInit() {
-		heroes = searchTerms.debounceTime(300) // wait for 300ms pause in events
-				.distinctUntilChanged() // ignore if next search term is same as
-										// previous
+		heroes = searchTerms.debounceTime(300)
+				.distinctUntilChanged()
 				.switchMap((term, index) -> {
 					GWT.log("search term: " + term + " index:" + index);
 					return (term != null && !term.isEmpty()) ? heroSearchService.search(term)

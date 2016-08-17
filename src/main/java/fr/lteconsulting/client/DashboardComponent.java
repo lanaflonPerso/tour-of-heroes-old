@@ -11,8 +11,7 @@ import jsinterop.annotations.JsType;
 @Component(
 		selector = "my-dashboard",
 		templateUrl = "dashboard.component.html",
-		styleUrls = "dashboard.component.css",
-		providers = HeroService.class)
+		styleUrls = "dashboard.component.css")
 @JsType
 public class DashboardComponent implements OnInit
 {
@@ -31,9 +30,7 @@ public class DashboardComponent implements OnInit
 	@Override
 	public void ngOnInit()
 	{
-		heroService.getHeroes().then( ( heroes ) -> {
-			this.heroes = heroes.slice( 1, 5 );
-		}, null );
+		heroService.getHeroes().then( heroes ->this.heroes = heroes.slice( 1, 5 ) );
 	}
 
 	@JsMethod

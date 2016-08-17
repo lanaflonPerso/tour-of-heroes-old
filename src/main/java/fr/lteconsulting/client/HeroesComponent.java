@@ -1,5 +1,7 @@
 package fr.lteconsulting.client;
 
+import com.google.gwt.core.shared.GWT;
+
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.client.interop.Event;
@@ -9,14 +11,9 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(
-		selector = "my-heroes",
-		templateUrl = "heroes.component.html",
-		styleUrls = "heroes.component.css",
-		directives = HeroDetailComponent.class )
+@Component(selector = "my-heroes", templateUrl = "heroes.component.html", styleUrls = "heroes.component.css")
 @JsType
-public class HeroesComponent implements OnInit
-{
+public class HeroesComponent implements OnInit {
 	@JsProperty
 	private String title = "Tour of Heroes";
 
@@ -28,7 +25,7 @@ public class HeroesComponent implements OnInit
 
 	@JsProperty
 	private Object error;
-	
+
 	@JsProperty
 	private boolean addingHero;
 
@@ -36,8 +33,7 @@ public class HeroesComponent implements OnInit
 
 	private Router router;
 
-	public HeroesComponent( HeroService heroService, Router router )
-	{
+	public HeroesComponent(HeroService heroService, Router router) {
 		this.heroService = heroService;
 		this.router = router;
 
@@ -45,57 +41,48 @@ public class HeroesComponent implements OnInit
 	}
 
 	@Override
-	public void ngOnInit()
-	{
+	public void ngOnInit() {
 		getHeroes();
 	}
 
 	@JsMethod
-	private void onSelect( Hero hero )
-	{
+	private void onSelect(Hero hero) {
 		selectedHero = hero;
 	}
 
 	@JsMethod
-	private void gotoDetail()
-	{
-		router.navigate( JsArray.of( "/detail", String.valueOf( selectedHero.id ) ) );
+	private void gotoDetail() {
+		router.navigate(JsArray.of("/detail", String.valueOf(selectedHero.id)));
 	}
 
 	@JsMethod
-	private void addHero()
-	{
+	private void addHero() {
 		addingHero = true;
 		selectedHero = null;
 	}
 
 	@JsMethod
-	private void close( Hero savedHero )
-	{
+	private void close(Hero savedHero) {
+		GWT.log("CLOSE NEW HERO");
 		addingHero = false;
 
-		if( savedHero != null )
+		if (savedHero != null)
 			getHeroes();
 	}
 
 	@JsMethod
-	private void deleteHero( Hero hero, Event event )
-	{
+	private void deleteHero(Hero hero, Event event) {
 		event.stopPropagation();
 
-		heroService
-				.delete( hero )
-				.then( ( res ) -> {
-					heroes = heroes.filter( h -> h != hero );
-					if( selectedHero == hero )
-						selectedHero = null;
-				}, ( error ) -> this.error = error );
+		heroService.delete(hero).then((res) -> {
+			heroes = heroes.filter(h -> h != hero);
+			if (selectedHero == hero)
+				selectedHero = null;
+			return null;
+		}, error -> this.error = error);
 	}
 
-	private void getHeroes()
-	{
-		heroService.getHeroes().then( ( heroes ) -> {
-			this.heroes = heroes;
-		}, null );
+	private void getHeroes() {
+		heroService.getHeroes().then(heroes -> this.heroes = heroes, null);
 	}
 }
