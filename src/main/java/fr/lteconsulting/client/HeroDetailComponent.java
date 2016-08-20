@@ -1,7 +1,5 @@
 package fr.lteconsulting.client;
 
-import com.google.gwt.core.shared.GWT;
-
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.Input;
 import fr.lteconsulting.angular2gwt.Output;
@@ -31,7 +29,7 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	@JsProperty
 	private EventEmitter<Hero> close = new EventEmitter<>();
 	
-	private Object error;
+	protected Object error;
 
 	private boolean navigated;
 
@@ -76,7 +74,6 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	@JsMethod
 	private void goBack( @JsOptional Hero savedHero )
 	{
-		GWT.log("GOING BACK");
 		close.emit( savedHero );
 
 		if( navigated )
@@ -89,9 +86,9 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 		heroService
 				.save( hero )
 				.then( hero -> {
-					this.hero = hero; // saved hero, w/ id if new
+					this.hero = hero;
 					goBack( hero );
 					return null;
-				}, error -> this.error = error ); // TODO: Display error message
+				}, error -> this.error = error );
 	}
 }

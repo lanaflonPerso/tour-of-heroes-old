@@ -1,7 +1,5 @@
 package fr.lteconsulting.client;
 
-import com.google.gwt.core.shared.GWT;
-
 import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.client.interop.Event;
@@ -63,7 +61,6 @@ public class HeroesComponent implements OnInit {
 
 	@JsMethod
 	private void close(Hero savedHero) {
-		GWT.log("CLOSE NEW HERO");
 		addingHero = false;
 
 		if (savedHero != null)
