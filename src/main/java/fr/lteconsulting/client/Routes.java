@@ -5,7 +5,7 @@ import fr.lteconsulting.angular2gwt.client.JsObject;
 import fr.lteconsulting.angular2gwt.client.interop.ng.ProviderWrapper;
 import fr.lteconsulting.angular2gwt.client.interop.ng.router.RouterConfig;
 import fr.lteconsulting.angular2gwt.client.interop.ng.router.RouterModule;
-import fr.lteconsulting.client.test.MainComponent_AngularComponent;
+import fr.lteconsulting.client.test.TestComponent_AngularComponent;
 
 public class Routes implements ProviderWrapper {
 	@Override
@@ -15,7 +15,7 @@ public class Routes implements ProviderWrapper {
 				RouterConfig.route( "dashboard", DashboardComponent_AngularComponent.getComponentPrototype() ),
 				RouterConfig.route( "", "/dashboard", "full" ),
 				RouterConfig.route( "detail/:id", HeroDetailComponent_AngularComponent.getComponentPrototype() ),
-				RouterConfig.route( "test", MainComponent_AngularComponent.getComponentPrototype() )),
+				RouterConfig.route( "test", TestComponent_AngularComponent.getComponentPrototype() )),
 				new JsObject().set( "useHash", true ) );
 	}
 }

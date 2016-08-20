@@ -52,7 +52,6 @@ public class CountdownTimerComponent implements OnInit, OnDestroy {
 				if (seconds < 0)
 					seconds = 10;
 
-				// reset
 				message = "T-" + seconds + " seconds and counting";
 			}
 		}, 1000);

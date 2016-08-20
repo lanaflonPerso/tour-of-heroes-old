@@ -2,8 +2,7 @@ package fr.lteconsulting.client.test;
 
 import java.util.Map.Entry;
 
-import com.google.gwt.core.shared.GWT;
-
+import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.client.interop.Event;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.EventEmitter;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnChanges;
@@ -16,11 +15,14 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "my-child", template = "<h1>{{title}} - I am {{name}}</h1><button (click)='click($event)'>Click</button>")
+@Component(selector = "my-child", template = "<h1>{{title}} - I am {{name}}</h1><button (click)='click($event)'>Click</button><ul><li *ngFor='let item of history'>Changed {{item}}</li></ul>")
 @JsType
 public class ChildComponent implements OnChanges {
 	@JsProperty
 	private String title = "Child component";
+	
+	@JsProperty
+	private JsArray<String> history = JsArray.of();
 
 	private String _name;
 
@@ -38,7 +40,7 @@ public class ChildComponent implements OnChanges {
 	@JsMethod
 	public void ngOnChanges(SimpleChanges o) {
 		for (Entry<String, SimpleChange> e : o.changes()) {
-			GWT.log(" - " + (e.getValue().isFirstChange()?"<FIRST_CHANGE> ":"") + e.getKey() + ": " + e.getValue().previousValue + " => " + e.getValue().currentValue);
+			history.push((e.getValue().isFirstChange()?"(FIRST_CHANGE) ":"") + e.getKey() + " from '" + e.getValue().previousValue + "' to '" + e.getValue().currentValue+"'");
 		}
 	}
 

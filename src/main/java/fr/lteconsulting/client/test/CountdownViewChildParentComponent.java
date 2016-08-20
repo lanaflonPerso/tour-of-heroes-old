@@ -1,7 +1,5 @@
 package fr.lteconsulting.client.test;
 
-import com.google.gwt.core.shared.GWT;
-
 import fr.lteconsulting.angular2gwt.client.JsTools;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.AfterViewInit;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
@@ -31,7 +29,6 @@ public class CountdownViewChildParentComponent implements AfterViewInit {
 
 	@Override
 	public void ngAfterViewInit() {
-		GWT.log("INITITALIZED " + timerComponent);
 		JsTools.setTimeout(() -> initialized = true, 0);
 	}
 
