@@ -3,7 +3,6 @@ package fr.lteconsulting.client;
 import fr.lteconsulting.angular2gwt.NgModule;
 import fr.lteconsulting.angular2gwt.client.interop.angular.BrowserModule;
 import fr.lteconsulting.angular2gwt.client.interop.angular.FormsModule;
-import fr.lteconsulting.angular2gwt.client.interop.angular.Http;
 import jsinterop.annotations.JsType;
 
 @NgModule(
