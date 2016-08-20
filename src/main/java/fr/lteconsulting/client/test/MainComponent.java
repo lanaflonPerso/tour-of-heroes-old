@@ -7,7 +7,7 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "my-app", template = "<h1>{{title}}</h1><my-child (em)='baby($event)' [name]='childName'></my-child><version-parent></version-parent>")
+@Component(selector = "my-app", template = "<h1>{{title}}</h1><my-child (em)='baby($event)' [name]='childName'></my-child><version-parent></version-parent><countdown-parent-lv></countdown-parent-lv>")
 @JsType
 public class MainComponent {
 	@JsProperty
