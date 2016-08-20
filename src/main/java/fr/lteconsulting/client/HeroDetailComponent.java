@@ -1,14 +1,14 @@
 package fr.lteconsulting.client;
 
-import fr.lteconsulting.angular2gwt.Component;
-import fr.lteconsulting.angular2gwt.Input;
-import fr.lteconsulting.angular2gwt.Output;
 import fr.lteconsulting.angular2gwt.client.JsTools;
-import fr.lteconsulting.angular2gwt.client.interop.angular.ActivatedRoute;
-import fr.lteconsulting.angular2gwt.client.interop.angular.EventEmitter;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnDestroy;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subscription;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.EventEmitter;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnDestroy;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnInit;
+import fr.lteconsulting.angular2gwt.client.interop.ng.router.ActivatedRoute;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
+import fr.lteconsulting.angular2gwt.ng.core.Input;
+import fr.lteconsulting.angular2gwt.ng.core.Output;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsOptional;
 import jsinterop.annotations.JsProperty;

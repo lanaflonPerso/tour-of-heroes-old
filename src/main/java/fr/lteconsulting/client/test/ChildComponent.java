@@ -4,14 +4,14 @@ import java.util.Map.Entry;
 
 import com.google.gwt.core.shared.GWT;
 
-import fr.lteconsulting.angular2gwt.Component;
-import fr.lteconsulting.angular2gwt.Input;
-import fr.lteconsulting.angular2gwt.Output;
 import fr.lteconsulting.angular2gwt.client.interop.Event;
-import fr.lteconsulting.angular2gwt.client.interop.angular.EventEmitter;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnChanges;
-import fr.lteconsulting.angular2gwt.client.interop.angular.SimpleChange;
-import fr.lteconsulting.angular2gwt.client.interop.angular.SimpleChanges;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.EventEmitter;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnChanges;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.SimpleChange;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.SimpleChanges;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
+import fr.lteconsulting.angular2gwt.ng.core.Input;
+import fr.lteconsulting.angular2gwt.ng.core.Output;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;

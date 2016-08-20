@@ -1,8 +1,8 @@
 package fr.lteconsulting.client.test;
 
-import fr.lteconsulting.angular2gwt.Injectable;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Observable;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subject;
+import fr.lteconsulting.angular2gwt.ng.core.Injectable;
 import jsinterop.annotations.JsType;
 
 @Injectable

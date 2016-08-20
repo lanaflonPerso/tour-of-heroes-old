@@ -2,13 +2,13 @@ package fr.lteconsulting.client;
 
 import com.google.gwt.core.shared.GWT;
 
-import fr.lteconsulting.angular2gwt.Injectable;
 import fr.lteconsulting.angular2gwt.client.JSON;
 import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.client.JsObject;
-import fr.lteconsulting.angular2gwt.client.interop.angular.Headers;
-import fr.lteconsulting.angular2gwt.client.interop.angular.Http;
+import fr.lteconsulting.angular2gwt.client.interop.ng.http.Headers;
+import fr.lteconsulting.angular2gwt.client.interop.ng.http.Http;
 import fr.lteconsulting.angular2gwt.client.interop.promise.Promise;
+import fr.lteconsulting.angular2gwt.ng.core.Injectable;
 import jsinterop.annotations.JsType;
 
 @Injectable

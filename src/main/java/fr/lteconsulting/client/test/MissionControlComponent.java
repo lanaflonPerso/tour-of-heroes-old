@@ -1,7 +1,7 @@
 package fr.lteconsulting.client.test;
 
-import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;

@@ -2,12 +2,12 @@ package fr.lteconsulting.client;
 
 import com.google.gwt.core.client.GWT;
 
-import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
-import fr.lteconsulting.angular2gwt.client.interop.angular.Router;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Observable;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subject;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnInit;
+import fr.lteconsulting.angular2gwt.client.interop.ng.router.Router;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;

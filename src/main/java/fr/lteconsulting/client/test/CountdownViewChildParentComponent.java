@@ -2,10 +2,10 @@ package fr.lteconsulting.client.test;
 
 import com.google.gwt.core.shared.GWT;
 
-import fr.lteconsulting.angular2gwt.Component;
-import fr.lteconsulting.angular2gwt.ViewChild;
 import fr.lteconsulting.angular2gwt.client.JsTools;
-import fr.lteconsulting.angular2gwt.client.interop.angular.AfterViewInit;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.AfterViewInit;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
+import fr.lteconsulting.angular2gwt.ng.core.ViewChild;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;

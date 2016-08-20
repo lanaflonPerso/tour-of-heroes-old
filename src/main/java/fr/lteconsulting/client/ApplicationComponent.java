@@ -1,6 +1,6 @@
 package fr.lteconsulting.client;
 
-import fr.lteconsulting.angular2gwt.Component;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
@@ -10,11 +10,12 @@ import jsinterop.annotations.JsType;
 				"<nav>" +
 				"<a [routerLink]=\\\"['/dashboard']\\\" routerLinkActive='active'>Dashboard</a>" +
 				"<a [routerLink]=\\\"['/heroes']\\\" routerLinkActive='active'>Heroes</a>" +
+				"<a [routerLink]=\\\"['/test']\\\" routerLinkActive='active'>Tests</a>" +
 				"</nav>" +
 				"<router-outlet></router-outlet>",
-		styleUrls = "app.component.css" )
+		styleUrls = "application.component.css" )
 @JsType
-public class AppComponent
+public class ApplicationComponent
 {
 	@JsProperty
 	private String title = "Tour of Heroes";

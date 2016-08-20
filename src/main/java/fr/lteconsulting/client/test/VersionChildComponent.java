@@ -2,13 +2,13 @@ package fr.lteconsulting.client.test;
 
 import java.util.Map.Entry;
 
-import fr.lteconsulting.angular2gwt.Component;
-import fr.lteconsulting.angular2gwt.Input;
 import fr.lteconsulting.angular2gwt.client.JSON;
 import fr.lteconsulting.angular2gwt.client.JsArray;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnChanges;
-import fr.lteconsulting.angular2gwt.client.interop.angular.SimpleChange;
-import fr.lteconsulting.angular2gwt.client.interop.angular.SimpleChanges;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnChanges;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.SimpleChange;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.SimpleChanges;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
+import fr.lteconsulting.angular2gwt.ng.core.Input;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 

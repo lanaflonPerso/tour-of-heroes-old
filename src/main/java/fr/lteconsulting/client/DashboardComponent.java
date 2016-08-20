@@ -1,9 +1,9 @@
 package fr.lteconsulting.client;
 
-import fr.lteconsulting.angular2gwt.Component;
 import fr.lteconsulting.angular2gwt.client.JsArray;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnInit;
-import fr.lteconsulting.angular2gwt.client.interop.angular.Router;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnInit;
+import fr.lteconsulting.angular2gwt.client.interop.ng.router.Router;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;

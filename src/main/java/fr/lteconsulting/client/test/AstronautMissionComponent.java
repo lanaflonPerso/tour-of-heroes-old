@@ -1,9 +1,9 @@
 package fr.lteconsulting.client.test;
 
-import fr.lteconsulting.angular2gwt.Component;
-import fr.lteconsulting.angular2gwt.Input;
-import fr.lteconsulting.angular2gwt.client.interop.angular.OnDestroy;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subscription;
+import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnDestroy;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
+import fr.lteconsulting.angular2gwt.ng.core.Input;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;

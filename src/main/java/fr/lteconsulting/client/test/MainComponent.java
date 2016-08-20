@@ -2,7 +2,7 @@ package fr.lteconsulting.client.test;
 
 import java.util.Date;
 
-import fr.lteconsulting.angular2gwt.Component;
+import fr.lteconsulting.angular2gwt.ng.core.Component;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;

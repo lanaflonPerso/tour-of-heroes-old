@@ -1,9 +1,9 @@
 package fr.lteconsulting.client;
 
-import fr.lteconsulting.angular2gwt.Injectable;
 import fr.lteconsulting.angular2gwt.client.JsArray;
-import fr.lteconsulting.angular2gwt.client.interop.angular.Http;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Observable;
+import fr.lteconsulting.angular2gwt.client.interop.ng.http.Http;
+import fr.lteconsulting.angular2gwt.ng.core.Injectable;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
