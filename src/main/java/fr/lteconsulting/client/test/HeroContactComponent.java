@@ -2,14 +2,14 @@ package fr.lteconsulting.client.test;
 
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import fr.lteconsulting.angular2gwt.ng.core.Host;
-import fr.lteconsulting.angular2gwt.ng.core.Input;
 import fr.lteconsulting.angular2gwt.ng.core.Optional;
+import fr.lteconsulting.angular2gwt.ng.core.PropertyGetter;
 import fr.lteconsulting.client.LoggerService;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "hero-contact", template = "<div>Phone #: {{phoneNumber}}"
+@Component(selector = "hero-contact", template = "<div>Phone #: {{myPhoneNumber}}"
 		+ "<span *ngIf='hasLogger'>!!!</span></div>")
 @JsType
 public class HeroContactComponent {
@@ -32,20 +32,11 @@ public class HeroContactComponent {
 	}
 
 	/**
-	 * This input is used just so that Angular2Gwt allows us to create a virtual
-	 * property getter
+	 * This @PropertyGetter annotation triggers the creation of a Js property
+	 * associated with the current getter
 	 */
-	@Input
-	void setPhoneNumber(String value) {
-		throw new IllegalStateException("Cannot set a value here !");
-	}
-
-	/**
-	 * This getter is used by Angular2Gwt to implement the 'hero' property
-	 * 
-	 * @return
-	 */
-	String getPhoneNumber() {
+	@PropertyGetter
+	String getMyPhoneNumber() {
 		return heroCache.hero.phoneNumber;
 	}
 }
