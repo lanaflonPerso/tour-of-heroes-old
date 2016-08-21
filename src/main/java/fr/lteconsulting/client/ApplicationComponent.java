@@ -10,6 +10,7 @@ import jsinterop.annotations.JsType;
 				"<nav>" +
 				"<a [routerLink]=\\\"['/dashboard']\\\" routerLinkActive='active'>Dashboard</a>" +
 				"<a [routerLink]=\\\"['/heroes']\\\" routerLinkActive='active'>Heroes</a>" +
+				"<a [routerLink]=\\\"['/email']\\\" routerLinkActive='active'>Material</a>" +
 				"<a [routerLink]=\\\"['/test']\\\" routerLinkActive='active'>Tests</a>" +
 				"</nav>" +
 				"<router-outlet></router-outlet>",

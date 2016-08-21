@@ -38,6 +38,10 @@ public class ChildComponent implements OnChanges
 		_name = name.trim().toUpperCase();
 	}
 
+	@Output
+	@JsProperty
+	private EventEmitter<String> em = new EventEmitter<>();
+
 	protected String getName()
 	{
 		return _name;
@@ -52,10 +56,6 @@ public class ChildComponent implements OnChanges
 			history.push( (e.getValue().isFirstChange() ? "(FIRST_CHANGE) " : "") + e.getKey() + " from '" + e.getValue().previousValue + "' to '" + e.getValue().currentValue + "'" );
 		}
 	}
-
-	@Output
-	@JsProperty
-	private EventEmitter<String> em = new EventEmitter<>();
 
 	@JsMethod
 	private void click( Event e )

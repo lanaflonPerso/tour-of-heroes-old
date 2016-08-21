@@ -12,16 +12,21 @@ import jsinterop.annotations.JsType;
 				FormsModule.class
 		},
 		declarations = {
+				TestComponent.class,
+
 				MainComponent.class,
 				ChildComponent.class,
+				
 				VersionParentComponent.class,
 				VersionChildComponent.class,
+				
 				CountdownTimerComponent.class,
 				CountdownLocalVarParentComponent.class,
 				CountdownViewChildParentComponent.class,
+				
 				MissionControlComponent.class,
 				AstronautMissionComponent.class,
-				TestComponent.class,
+				
 				HeroBiosAndContactsComponent.class,
 				HeroBioComponent.class,
 				HeroContactComponent.class },

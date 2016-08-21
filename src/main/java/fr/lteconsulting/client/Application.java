@@ -14,6 +14,6 @@ public class Application implements EntryPoint
 	{
 		// Angular.enableProdMode();
 
-		PlatformBrowserDynamic.platformBrowserDynamic().bootstrapModule( TourOfHeroesModule_AngularModule.getNgModulePrototype() );
+		PlatformBrowserDynamic.platformBrowserDynamic().bootstrapModule( ApplicationModule_AngularModule.getNgModulePrototype() );
 	}
 }
