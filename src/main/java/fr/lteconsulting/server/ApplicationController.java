@@ -33,11 +33,11 @@ public class ApplicationController
 	{
 		return heroes;
 	}
-	
-	@RequestMapping( value = "/heroes",params={"name"}, method = RequestMethod.GET, produces = "application/json" )
-	List<Hero> getHeroes(@RequestParam String name)
+
+	@RequestMapping( value = "/heroes", params = { "name" }, method = RequestMethod.GET, produces = "application/json" )
+	List<Hero> getHeroes( @RequestParam String name )
 	{
-		return heroes.stream().filter(hero->hero.name.toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
+		return heroes.stream().filter( hero -> hero.name.toLowerCase().contains( name.toLowerCase() ) ).collect( Collectors.toList() );
 	}
 
 	@RequestMapping( value = "/heroes/{id}", method = RequestMethod.GET, produces = "application/json" )

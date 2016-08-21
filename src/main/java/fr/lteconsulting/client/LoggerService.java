@@ -7,8 +7,10 @@ import jsinterop.annotations.JsType;
 
 @Injectable
 @JsType
-public class LoggerService {
-	public void log(String text) {
-		GWT.log(text);
+public class LoggerService
+{
+	public void log( String text )
+	{
+		GWT.log( text );
 	}
 }

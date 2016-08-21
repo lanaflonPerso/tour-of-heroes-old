@@ -8,11 +8,32 @@ import fr.lteconsulting.client.test.TestModule;
 import jsinterop.annotations.JsType;
 
 @NgModule(
-		imports = { BrowserModule.class, FormsModule.class, Routes.class, HttpModule.class, TestModule.class },
-		declarations = { ApplicationComponent.class, DashboardComponent.class, HeroesComponent.class, HeroDetailComponent.class, HeroSearchComponent.class },
-		providers = { HeroService.class, HeroSearchService.class },
-		entryComponents = { DashboardComponent.class, HeroesComponent.class, HeroDetailComponent.class, HeroSearchComponent.class },
+		imports = {
+				BrowserModule.class,
+				FormsModule.class,
+				HttpModule.class,
+				Routes.class,
+				TestModule.class
+		},
+		declarations = {
+				ApplicationComponent.class,
+				DashboardComponent.class,
+				HeroesComponent.class,
+				HeroDetailComponent.class,
+				HeroSearchComponent.class
+		},
+		providers = {
+				HeroService.class,
+				HeroSearchService.class
+		},
+		entryComponents = {
+				DashboardComponent.class,
+				HeroesComponent.class,
+				HeroDetailComponent.class,
+				HeroSearchComponent.class
+		},
 		bootstrap = ApplicationComponent.class )
 @JsType
-public class TourOfHeroesModule {
+public class TourOfHeroesModule
+{
 }

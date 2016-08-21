@@ -7,7 +7,8 @@ import jsinterop.annotations.JsType;
 
 @Injectable
 @JsType
-public class MissionService {
+public class MissionService
+{
 	// Observable string sources
 	private Subject<String> missionAnnouncedSource = new Subject<>();
 
@@ -19,11 +20,13 @@ public class MissionService {
 	public Observable<String> missionConfirmed$ = missionConfirmedSource.asObservable();
 
 	// Service message commands
-	public void announceMission(String mission) {
-		missionAnnouncedSource.next(mission);
+	public void announceMission( String mission )
+	{
+		missionAnnouncedSource.next( mission );
 	}
 
-	public void confirmMission(String astronaut) {
-		missionConfirmedSource.next(astronaut);
+	public void confirmMission( String astronaut )
+	{
+		missionConfirmedSource.next( astronaut );
 	}
 }

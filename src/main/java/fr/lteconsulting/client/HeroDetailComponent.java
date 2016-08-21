@@ -28,7 +28,7 @@ public class HeroDetailComponent implements OnInit, OnDestroy
 	@Output
 	@JsProperty
 	private EventEmitter<Hero> close = new EventEmitter<>();
-	
+
 	protected Object error;
 
 	private boolean navigated;

@@ -13,9 +13,13 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "hero-search", templateUrl = "hero-search.component.html", styleUrls = "hero-search.component.css")
+@Component(
+		selector = "hero-search",
+		templateUrl = "hero-search.component.html",
+		styleUrls = "hero-search.component.css" )
 @JsType
-public class HeroSearchComponent implements OnInit {
+public class HeroSearchComponent implements OnInit
+{
 	@JsProperty
 	Observable<JsArray<Hero>> heroes;
 
@@ -26,33 +30,36 @@ public class HeroSearchComponent implements OnInit {
 	private Router router;
 
 	@JsConstructor
-	HeroSearchComponent(HeroSearchService heroSearchService, Router router) {
+	HeroSearchComponent( HeroSearchService heroSearchService, Router router )
+	{
 		this.heroSearchService = heroSearchService;
 		this.router = router;
 	}
 
 	@JsMethod
-	void search(String term) {
-		searchTerms.next(term);
+	void search( String term )
+	{
+		searchTerms.next( term );
 	}
 
 	@Override
-	public void ngOnInit() {
-		heroes = searchTerms.debounceTime(300)
+	public void ngOnInit()
+	{
+		heroes = searchTerms.debounceTime( 300 )
 				.distinctUntilChanged()
-				.switchMap((term, index) -> {
-					GWT.log("search term: " + term + " index:" + index);
-					return (term != null && !term.isEmpty()) ? heroSearchService.search(term)
-							: Observable.of(JsArray.<Hero>empty());
-				}).onError(error -> {
+				.switchMap( ( term, index ) -> {
+					GWT.log( "search term: " + term + " index:" + index );
+					return (term != null && !term.isEmpty()) ? heroSearchService.search( term ) : Observable.of( JsArray.<Hero> empty() );
+				} ).onError( error -> {
 					// TODO: real error handling
-					GWT.log("Error:" + error);
-					return Observable.of(JsArray.empty());
-				});
+					GWT.log( "Error:" + error );
+					return Observable.of( JsArray.empty() );
+				} );
 	}
 
 	@JsMethod
-	void gotoDetail(Hero hero) {
-		router.navigate(JsArray.of("/detail", String.valueOf(hero.id)));
+	void gotoDetail( Hero hero )
+	{
+		router.navigate( JsArray.of( "/detail", String.valueOf( hero.id ) ) );
 	}
 }

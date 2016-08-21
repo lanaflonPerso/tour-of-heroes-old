@@ -9,15 +9,18 @@ import jsinterop.annotations.JsType;
 
 @Injectable
 @JsType
-public class HeroSearchService {
+public class HeroSearchService
+{
 	private Http http;
-	
+
 	@JsConstructor
-	public HeroSearchService( Http http ) {
+	public HeroSearchService( Http http )
+	{
 		this.http = http;
 	}
 
-	public Observable<JsArray<Hero>> search(String term) {
-		return http.get("app/heroes/?name="+term).map(response->response.json());
+	public Observable<JsArray<Hero>> search( String term )
+	{
+		return http.get( "app/heroes/?name=" + term ).map( response -> response.json() );
 	}
 }

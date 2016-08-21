@@ -6,12 +6,14 @@ import jsinterop.annotations.JsType;
 
 @Injectable
 @JsType
-public class HeroCacheService {
+public class HeroCacheService
+{
 	public Hero hero;
 
-	public Hero fetchCachedHero(int id) {
-		if (hero == null)
-			hero = new Hero(id, "Hero number " + id);
+	public Hero fetchCachedHero( int id )
+	{
+		if( hero == null )
+			hero = new Hero( id, "Hero number " + id );
 
 		return hero;
 	}

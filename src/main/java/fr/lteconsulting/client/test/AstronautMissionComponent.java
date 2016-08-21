@@ -8,20 +8,24 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "my-astronaut", template = "<p>" + "{{astronaut}}: <strong>{{mission}}</strong>" + "<button "
-		+ "(click)='confirm()'" + " [disabled]='!announced || confirmed'>" + "Confirm" + "</button>" + "</p>")
+@Component(
+		selector = "my-astronaut",
+		template = "<p>" + "{{astronaut}}: <strong>{{mission}}</strong>" +
+				"<button (click)='confirm()' [disabled]='!announced || confirmed'>Confirm</button>" +
+				"</p>" )
 @JsType
-public class AstronautMissionComponent implements OnDestroy {
+public class AstronautMissionComponent implements OnDestroy
+{
 	@Input
 	@JsProperty
 	private String astronaut;
 
 	@JsProperty
 	private String mission = "<no mission announced>";
-	
+
 	@JsProperty
 	private boolean confirmed = false;
-	
+
 	@JsProperty
 	private boolean announced = false;
 
@@ -29,24 +33,27 @@ public class AstronautMissionComponent implements OnDestroy {
 
 	private MissionService missionService;
 
-	public AstronautMissionComponent(MissionService missionService) {
+	public AstronautMissionComponent( MissionService missionService )
+	{
 		this.missionService = missionService;
 
-		subscription = missionService.missionAnnounced$.subscribe(mission -> {
+		subscription = missionService.missionAnnounced$.subscribe( mission -> {
 			this.mission = mission;
 			announced = true;
 			confirmed = false;
-		});
+		} );
 	}
 
 	@JsMethod
-	private void confirm() {
+	private void confirm()
+	{
 		confirmed = true;
-		missionService.confirmMission(astronaut);
+		missionService.confirmMission( astronaut );
 	}
 
 	@Override
-	public void ngOnDestroy() {
+	public void ngOnDestroy()
+	{
 		// prevent memory leak when component destroyed
 		subscription.unsubscribe();
 	}

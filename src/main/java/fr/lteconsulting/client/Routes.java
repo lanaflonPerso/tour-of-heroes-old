@@ -7,15 +7,17 @@ import fr.lteconsulting.angular2gwt.client.interop.ng.router.RouterConfig;
 import fr.lteconsulting.angular2gwt.client.interop.ng.router.RouterModule;
 import fr.lteconsulting.client.test.TestComponent_AngularComponent;
 
-public class Routes implements ProviderWrapper {
+public class Routes implements ProviderWrapper
+{
 	@Override
-	public Object get() {
+	public Object get()
+	{
 		return RouterModule.forRoot( JsArray.of(
 				RouterConfig.route( "heroes", HeroesComponent_AngularComponent.getComponentPrototype() ),
 				RouterConfig.route( "dashboard", DashboardComponent_AngularComponent.getComponentPrototype() ),
 				RouterConfig.route( "", "/dashboard", "full" ),
 				RouterConfig.route( "detail/:id", HeroDetailComponent_AngularComponent.getComponentPrototype() ),
-				RouterConfig.route( "test", TestComponent_AngularComponent.getComponentPrototype() )),
+				RouterConfig.route( "test", TestComponent_AngularComponent.getComponentPrototype() ) ),
 				new JsObject().set( "useHash", true ) );
 	}
 }

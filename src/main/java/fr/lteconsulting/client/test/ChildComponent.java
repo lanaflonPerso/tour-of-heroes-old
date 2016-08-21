@@ -15,12 +15,17 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "my-child", template = "<h1>{{title}} - I am {{name}}</h1><button (click)='click($event)'>Click</button><ul><li *ngFor='let item of history'>Changed {{item}}</li></ul>")
+@Component(
+		selector = "my-child",
+		template = "<h1>{{title}} - I am {{name}}</h1>" +
+				"<button (click)='click($event)'>Click</button>" +
+				"<ul><li *ngFor='let item of history'>Changed {{item}}</li></ul>" )
 @JsType
-public class ChildComponent implements OnChanges {
+public class ChildComponent implements OnChanges
+{
 	@JsProperty
 	private String title = "Child component";
-	
+
 	@JsProperty
 	private JsArray<String> history = JsArray.of();
 
@@ -28,19 +33,23 @@ public class ChildComponent implements OnChanges {
 
 	@Input
 	@JsMethod
-	protected void setName(String name) {
+	protected void setName( String name )
+	{
 		_name = name.trim().toUpperCase();
 	}
 
-	protected String getName() {
+	protected String getName()
+	{
 		return _name;
 	}
 
 	@Override
 	@JsMethod
-	public void ngOnChanges(SimpleChanges o) {
-		for (Entry<String, SimpleChange> e : o.changes()) {
-			history.push((e.getValue().isFirstChange()?"(FIRST_CHANGE) ":"") + e.getKey() + " from '" + e.getValue().previousValue + "' to '" + e.getValue().currentValue+"'");
+	public void ngOnChanges( SimpleChanges o )
+	{
+		for( Entry<String, SimpleChange> e : o.changes() )
+		{
+			history.push( (e.getValue().isFirstChange() ? "(FIRST_CHANGE) " : "") + e.getKey() + " from '" + e.getValue().previousValue + "' to '" + e.getValue().currentValue + "'" );
 		}
 	}
 
@@ -49,7 +58,8 @@ public class ChildComponent implements OnChanges {
 	private EventEmitter<String> em = new EventEmitter<>();
 
 	@JsMethod
-	private void click(Event e) {
-		em.emit("hello to subscribers !");
+	private void click( Event e )
+	{
+		em.emit( "hello to subscribers !" );
 	}
 }

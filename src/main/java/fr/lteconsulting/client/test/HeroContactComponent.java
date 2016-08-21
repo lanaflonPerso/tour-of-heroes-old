@@ -9,10 +9,14 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@Component(selector = "hero-contact", template = "<div>Phone #: {{myPhoneNumber}}"
-		+ "<span *ngIf='hasLogger'>!!!</span></div>")
+@Component(
+		selector = "hero-contact",
+		template = "<div>Phone #: {{myPhoneNumber}}"
+				+ "<span *ngIf='hasLogger'>!!!</span>" +
+				"</div>" )
 @JsType
-public class HeroContactComponent {
+public class HeroContactComponent
+{
 	@JsProperty
 	private boolean hasLogger = false;
 
@@ -22,12 +26,14 @@ public class HeroContactComponent {
 	// limit search for logger; hides the application-wide logger and ok if the
 	// logger doesn't exist
 	@JsConstructor
-	HeroContactComponent(@Host HeroCacheService heroCache, @Host @Optional LoggerService loggerService) {
+	HeroContactComponent( @Host HeroCacheService heroCache, @Host @Optional LoggerService loggerService )
+	{
 		this.heroCache = heroCache;
 
-		if (loggerService != null) {
+		if( loggerService != null )
+		{
 			hasLogger = true;
-			loggerService.log("HeroContactComponent can log!");
+			loggerService.log( "HeroContactComponent can log!" );
 		}
 	}
 
@@ -36,7 +42,8 @@ public class HeroContactComponent {
 	 * associated with the current getter
 	 */
 	@PropertyGetter
-	String getMyPhoneNumber() {
+	String getMyPhoneNumber()
+	{
 		return heroCache.hero.phoneNumber;
 	}
 }
