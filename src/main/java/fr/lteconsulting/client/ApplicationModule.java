@@ -4,7 +4,6 @@ import fr.lteconsulting.angular2gwt.client.interop.ng.forms.FormsModule;
 import fr.lteconsulting.angular2gwt.client.interop.ng.http.HttpModule;
 import fr.lteconsulting.angular2gwt.client.interop.ng.platformBrowser.BrowserModule;
 import fr.lteconsulting.angular2gwt.ng.core.NgModule;
-import fr.lteconsulting.client.material.EmailApplicationModule;
 import fr.lteconsulting.client.test.TestModule;
 import jsinterop.annotations.JsType;
 
@@ -14,8 +13,7 @@ import jsinterop.annotations.JsType;
 				FormsModule.class,
 				HttpModule.class,
 				Routes.class,
-				TestModule.class,
-				EmailApplicationModule.class
+				TestModule.class
 		},
 		declarations = {
 				ApplicationComponent.class,
