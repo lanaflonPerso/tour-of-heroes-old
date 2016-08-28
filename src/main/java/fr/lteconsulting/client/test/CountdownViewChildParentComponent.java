@@ -1,6 +1,6 @@
 package fr.lteconsulting.client.test;
 
-import fr.lteconsulting.angular2gwt.client.JsTools;
+import fr.lteconsulting.angular2gwt.client.interop.GlobalScope;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.AfterViewInit;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import fr.lteconsulting.angular2gwt.ng.core.ViewChild;
@@ -36,7 +36,7 @@ public class CountdownViewChildParentComponent implements AfterViewInit
 	@Override
 	public void ngAfterViewInit()
 	{
-		JsTools.setTimeout( () -> initialized = true, 0 );
+		GlobalScope.setTimeout( () -> initialized = true, 0 );
 	}
 
 	@JsMethod

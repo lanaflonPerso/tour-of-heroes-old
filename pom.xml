@@ -9,7 +9,7 @@
 	</parent>
 
 	<groupId>fr.lteconsulting</groupId>
-	<artifactId>tour-of-heroes</artifactId>
+	<artifactId>tour-of-heroes-old</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>demo-angular2boot</name>
 	<packaging>jar</packaging>

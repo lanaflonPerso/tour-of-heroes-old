@@ -1,6 +1,6 @@
 package fr.lteconsulting.client.test;
 
-import fr.lteconsulting.angular2gwt.client.JsTools;
+import fr.lteconsulting.angular2gwt.client.interop.GlobalScope;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnDestroy;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnInit;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
@@ -23,7 +23,7 @@ public class CountdownTimerComponent implements OnInit, OnDestroy
 	private void clearTimer()
 	{
 		if( intervalId != 0 )
-			JsTools.clearInterval( intervalId );
+			GlobalScope.clearInterval( intervalId );
 		intervalId = 0;
 	}
 
@@ -53,7 +53,7 @@ public class CountdownTimerComponent implements OnInit, OnDestroy
 	private void countDown()
 	{
 		clearTimer();
-		intervalId = JsTools.setInterval( () -> {
+		intervalId = GlobalScope.setInterval( () -> {
 			seconds -= 1;
 			if( seconds == 0 )
 			{
