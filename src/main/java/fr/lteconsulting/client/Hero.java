@@ -12,11 +12,13 @@ public class Hero
 	public String name;
 	public String description;
 	public String phoneNumber;
+	public String state;
 
 	@JsConstructor
 	public Hero()
 	{
 		id = 0;
+		state = "inactive";
 	}
 
 	@JsIgnore
@@ -27,6 +29,11 @@ public class Hero
 		this.id = id;
 		this.name = name;
 		this.phoneNumber = "(00)-33 12345678";
+	}
+
+	public void toggleState()
+	{
+		state = "active".equals( state ) ? "inactive" : "active";
 	}
 
 	@Override

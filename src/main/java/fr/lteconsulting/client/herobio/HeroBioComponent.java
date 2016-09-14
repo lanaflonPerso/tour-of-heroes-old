@@ -1,25 +1,23 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.herobio;
 
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnInit;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import fr.lteconsulting.angular2gwt.ng.core.Input;
 import fr.lteconsulting.angular2gwt.ng.core.PropertyGetter;
 import fr.lteconsulting.client.Hero;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @Component(
 		selector = "hero-bio",
-		template = "<h4>{{hero.name}}</h4>" +
-				"<ng-content></ng-content>"
+		template = "<h1>{{hero.name}}</h1>"
+				+ "<ng-content></ng-content>"
 				+ "<textarea cols='25' [(ngModel)]='hero.description'></textarea>",
 		providers = HeroCacheService.class )
 @JsType
 public class HeroBioComponent implements OnInit
 {
 	@Input
-	@JsProperty
-	private int heroId;
+	public int heroId;
 
 	@PropertyGetter
 	Hero getHero()

@@ -1,11 +1,9 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.mainchild;
 
 import java.util.Date;
 
 import fr.lteconsulting.angular2gwt.client.JsArray;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @Component(
@@ -17,17 +15,11 @@ import jsinterop.annotations.JsType;
 @JsType
 public class MainComponent
 {
-	@JsProperty
-	private String childName = "init";
+	public String childName = "init";
+	public String title = "Main component";
+	public JsArray<String> history = JsArray.of();
 
-	@JsProperty
-	private String title = "Main component";
-
-	@JsProperty
-	private JsArray<String> history = JsArray.of();
-
-	@JsMethod
-	private void baby( String item )
+	public void baby( String item )
 	{
 		history.push( "received an event from the child : " + item );
 		childName = new Date().toString();

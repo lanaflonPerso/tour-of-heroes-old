@@ -1,4 +1,4 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.mainchild;
 
 import java.util.Map.Entry;
 
@@ -11,8 +11,6 @@ import fr.lteconsulting.angular2gwt.client.interop.ng.core.SimpleChanges;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import fr.lteconsulting.angular2gwt.ng.core.Input;
 import fr.lteconsulting.angular2gwt.ng.core.Output;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @Component(
@@ -23,24 +21,20 @@ import jsinterop.annotations.JsType;
 @JsType
 public class ChildComponent implements OnChanges
 {
-	@JsProperty
-	private String title = "Child component";
+	public String title = "Child component";
 
-	@JsProperty
-	private JsArray<String> history = JsArray.of();
+	public JsArray<String> history = JsArray.of();
+
+	@Output
+	public final EventEmitter<String> em = new EventEmitter<>();
 
 	private String _name;
 
 	@Input
-	@JsMethod
-	protected void setName( String name )
+	public void setName( String name )
 	{
 		_name = name.trim().toUpperCase();
 	}
-
-	@Output
-	@JsProperty
-	private EventEmitter<String> em = new EventEmitter<>();
 
 	protected String getName()
 	{
@@ -48,7 +42,6 @@ public class ChildComponent implements OnChanges
 	}
 
 	@Override
-	@JsMethod
 	public void ngOnChanges( SimpleChanges o )
 	{
 		for( Entry<String, SimpleChange> e : o.changes() )
@@ -57,8 +50,7 @@ public class ChildComponent implements OnChanges
 		}
 	}
 
-	@JsMethod
-	private void click( Event e )
+	public void click( Event e )
 	{
 		em.emit( "hello to subscribers !" );
 	}

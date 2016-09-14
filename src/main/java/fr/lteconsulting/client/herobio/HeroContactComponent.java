@@ -1,4 +1,4 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.herobio;
 
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import fr.lteconsulting.angular2gwt.ng.core.Host;
@@ -6,7 +6,6 @@ import fr.lteconsulting.angular2gwt.ng.core.Optional;
 import fr.lteconsulting.angular2gwt.ng.core.PropertyGetter;
 import fr.lteconsulting.client.LoggerService;
 import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @Component(
@@ -17,8 +16,7 @@ import jsinterop.annotations.JsType;
 @JsType
 public class HeroContactComponent
 {
-	@JsProperty
-	private boolean hasLogger = false;
+	public boolean hasLogger = false;
 
 	private HeroCacheService heroCache;
 

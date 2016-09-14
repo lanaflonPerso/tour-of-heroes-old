@@ -1,16 +1,14 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.countdown;
 
 import fr.lteconsulting.angular2gwt.client.interop.GlobalScope;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.AfterViewInit;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
 import fr.lteconsulting.angular2gwt.ng.core.ViewChild;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @Component(
 		selector = "countdown-parent-vc",
-		template = "<h3>Countdown to Liftoff (via ViewChild)</h3>" +
+		template = "<h1>Countdown to Liftoff (via ViewChild)</h1>" +
 				"<button (click)='start()'>Start</button>" +
 				"<button (click)='stop()'>Stop</button>" +
 				"<div class='seconds'>{{ seconds() }}</div>" +
@@ -19,11 +17,9 @@ import jsinterop.annotations.JsType;
 public class CountdownViewChildParentComponent implements AfterViewInit
 {
 	@ViewChild( component = CountdownTimerComponent.class )
-	@JsProperty
-	private CountdownTimerComponent timerComponent = null;
+	public CountdownTimerComponent timerComponent = null;
 
-	@JsMethod
-	private int seconds()
+	public int seconds()
 	{
 		if( !initialized || timerComponent == null )
 			return 0;
@@ -39,14 +35,12 @@ public class CountdownViewChildParentComponent implements AfterViewInit
 		GlobalScope.setTimeout( () -> initialized = true, 0 );
 	}
 
-	@JsMethod
-	private void start()
+	public void start()
 	{
 		timerComponent.start();
 	}
 
-	@JsMethod
-	private void stop()
+	public void stop()
 	{
 		timerComponent.stop();
 	}

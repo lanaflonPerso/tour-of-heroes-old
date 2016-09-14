@@ -1,10 +1,9 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.countdown;
 
 import fr.lteconsulting.angular2gwt.client.interop.GlobalScope;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnDestroy;
 import fr.lteconsulting.angular2gwt.client.interop.ng.core.OnInit;
 import fr.lteconsulting.angular2gwt.ng.core.Component;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @Component(
@@ -13,9 +12,7 @@ import jsinterop.annotations.JsType;
 @JsType
 public class CountdownTimerComponent implements OnInit, OnDestroy
 {
-
-	@JsProperty
-	private String message = "";
+	public String message = "";
 
 	private int intervalId = 0;
 	public int seconds = 11;

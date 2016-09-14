@@ -1,4 +1,4 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.herobio;
 
 import fr.lteconsulting.angular2gwt.ng.core.Injectable;
 import fr.lteconsulting.client.Hero;

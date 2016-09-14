@@ -1,4 +1,4 @@
-package fr.lteconsulting.client.test;
+package fr.lteconsulting.client.missioncontrol;
 
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Observable;
 import fr.lteconsulting.angular2gwt.client.interop.angular.rxjs.Subject;
